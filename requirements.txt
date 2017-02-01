@@ -1,0 +1,2 @@
+pygithub==1.32
+python-dateutil==2.6.0
