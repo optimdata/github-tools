@@ -8,6 +8,8 @@ Github is great but some features are missing when it comes to project which inv
 $> pip install -r requirements.txt
 ```
 
+Then you have to setup two self-explanatories environment variables: `GITHUB_USER` and `GITHUB_PASSWORD`.
+
 ## Update milestone
 
 The goal of this script is to synchronize milestone due date between several repositories. Let's say you have two repos `foo` and `bar`, a milestone `0.1.0` scheduled for 2017/02/02
