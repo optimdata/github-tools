@@ -22,8 +22,11 @@ if __name__ == '__main__':
     for repo in repos:
         print('# %s ' % repo.name)
         print()
-        milestone = [milestone for milestone in repo.get_milestones() if milestone.title == args.milestone][0]
-        issues = repo.get_issues(milestone=milestone)
+        milestones = [milestone for milestone in repo.get_milestones() if milestone.title == args.milestone]
+        if not milestones:
+            continue
+        milestone = milestones[0]
+        issues = repo.get_issues(milestone=milestone, state='all')
         for issue in issues:
             if '/pull/' not in issue.html_url:
                 print('- [%s #%s](%s)' % (issue.title, issue.number, issue.html_url))
