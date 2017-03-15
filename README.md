@@ -36,3 +36,16 @@ $> python fetch-issues.py -m 0.1.0 -d 20170202 -r foo,bar
 - [Implement that #2](https://github.com/myorganization/bar/issues/2)
 ```
 
+## Fetch PR files
+
+The goal of this script is to fetch files modified in a pull request and display it in a list
+
+```bash
+$> python fetch-pr-files.py -o myorganization -r myrepo -p 1
+
+# PullRequest(title="First PR", number=1)
+
+## Files
+
+models.py
+views.py
