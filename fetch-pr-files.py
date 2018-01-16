@@ -14,7 +14,10 @@ if __name__ == '__main__':
     parser.add_argument('-r', dest='repo', help='Repository', required=True)
     args = parser.parse_args()
 
-    g = Github(os.getenv('GITHUB_USER'), os.getenv('GITHUB_PASSWORD'))
+    if os.getenv('GITHUB_PERSONAL_ACCESS_TOKEN'):
+        g = Github(os.getenv('GITHUB_PERSONAL_ACCESS_TOKEN'))
+    else:
+        g = Github(os.getenv('GITHUB_USER'), os.getenv('GITHUB_PASSWORD'))
 
     if args.organization:
         repo = g.get_organization(args.organization).get_repo(args.repo)
