@@ -26,8 +26,8 @@ if __name__ == '__main__':
 
     pull = repo.get_pull(args.pull)
     print('# %s ' % pull)
-    print()
+    print('')
     print('## Files')
-    print()
+    print('')
     for f in pull.get_files():
-        print(f.filename)
+        print('- [ ] %s' % f.filename)

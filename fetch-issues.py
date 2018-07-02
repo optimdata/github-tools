@@ -61,7 +61,12 @@ if __name__ == '__main__':
         print('#### %s' % CATEGORIES[category]['label'])
         print('')
         for issue in issues[category]:
-            print('- [%s #%s](%s)' % (issue.title, issue.number, issue.html_url))
+            if category == 'majors':
+                print('##### %s' % issue.title)
+                print('')
+                print('[Link to github (#%s)](%s)' % (issue.number, issue.html_url))
+            else:
+                print('- [%s #%s](%s)' % (issue.title, issue.number, issue.html_url))
             if CATEGORIES[category]['marketing']:
                 for comment in issue.get_comments():
                     if re.match('[#]+ Marketing[\r\n]+', comment.body):
