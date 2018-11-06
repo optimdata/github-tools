@@ -55,6 +55,9 @@ if __name__ == "__main__":
         if not milestones:
             continue
         milestone = milestones[0]
+        if milestone.description:
+            print(milestone.description.encode("utf8"))
+            print("")
         for issue in repo.get_issues(milestone=milestone, state="all"):
             if "/pull/" not in issue.html_url:
                 labels = [label.name for label in issue.labels]
